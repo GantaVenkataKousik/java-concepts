@@ -1,0 +1,40 @@
+what is Java:
+
+Platform independent Language
+WORA( write once Run Anywhere)
+
+
+working: 
+
+JAVA FILE ---- compiler ---- .class file [ Bytecode ] ----- JVM ---- machine code ---- CPU ---- output
+
+The compiler is 
+  - JIT Compiler
+
+  
+  
+3 Main Components:
+
+JDK ( JRE ( JVM ) JRE ) JDK
+
+JVM :
+- Java Virtual Machine
+  - It's an abstract machine(doesn;t exist physically)
+  - this is platform dependent
+  - for diff os it needs to have compatible jvm
+
+JRE:
+- Java RunTime Environment
+  - It has JVM  + 
+  - class libraries
+  - with JRE you can run any file
+
+  with only jre you can't code 
+  and compile
+  
+JDK
+- Java Development Kit
+  - programming language
+  - compiler( javac)
+  - debugger
+  
