@@ -14,4 +14,27 @@ execution(java Test) :
   here Test is the class with the main method
 
 
-HOw much 
+A process can have mutliple threads
+
+
+Thread:
+A light weight process 
+(or)
+smallest sequence of instructions that
+are executed by CPU independently
+
+
+when a proces is created 
+intially it will create a single thread,
+which is known as main thread and from that
+we can create mutliple threads to perform tasks 
+concurrently
+
+public class MultithreadingLearning {
+}
+public static void main(String args[]){
+}
+System.out.println("Thread Name: " + Thread.currentThread().getName());
+
+Thread Name : main
+
