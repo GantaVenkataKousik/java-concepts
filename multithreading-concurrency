@@ -38,3 +38,60 @@ System.out.println("Thread Name: " + Thread.currentThread().getName());
 
 Thread Name : main
 
+
+even we can define how much heap memory need to be allocated 
+and 
+
+and for a process 
+there are multiple threads 
+
+and for every thread 
+
+we have 
+
+diff register, stack, counter
+apart from these
+
+the data and code segment are same 
+and 
+
+the total available heap memory will be allocated to the processes
+
+
+
+Code segment : 
+--->contains teh compiled BYTECODE( machine code) of the Java program
+--->Its read only
+
+Data Segment :
+--->Contains all the static and global variables
+--->threads can read and modify the same data
+--->Synchronization is required between the threads
+
+Heap:
+--->Objects created at runtime using new Keyword are allocated 
+--->heap is shared among all teh threads 
+of the same process. (but NOT within the processes)
+---> threads can read adn modift the heap data
+
+
+Register:
+--->to store intermediate values
+--->to optimise ther generated machine code
+--->context switching
+
+
+Counter:
+--->what part of the code did 
+the thread need to execute was being specified by the 
+counter by storing the address of the 
+instruction
+
+--->
+
+
+
+
+
+
+
