@@ -89,9 +89,41 @@ instruction
 
 --->
 
+suppost the thread 1 has completed 60% the results are being stored in
+the register 
+and when CPU wants to execute the thread 
+the results stored in register are being loaded 
+adn will be executed
+
+Now we thought multithreading as multiple threads executing parallely
+But it is not 
+CPU rapidly switches between threads (context switching), 
+giving the illusion of parallelism due to the high speed of switching
+
+Due to its speed and efficient execution we feel that way.
+
+If we have multiple CPU then multiple CPU will be executed 
+parallely
+
+Benefits:
+-->High Performace by 
+parallelism
+-->Resource sharing
+
+Challenges of MultiThreading:
+
+--->Concurrency Issue(deadlock, data inconsistency etc)
+--->Synchonized Overhead
 
 
 
+Diff between MutliThreading and MultiTasking:
 
+In MutliThreading there is sharing 
+but
 
+in multitasking there is no sharing
+EX: diff processs ---> MultiTasking
+
+and threads inside a process ---> MultiThreading
 
