@@ -1,0 +1,67 @@
+Types of Memory:
+-->stack
+-->Heap
+
+Both stack and heap are created by JVM and stored in RAM
+
+Stack Memory:
+-----------
+--Store temporary Variables and 
+seperate memory block for methods
+--Store Primitive data Types
+--Store Reference of the heap Objects
+  --Strong Reference
+  --Weak Reference
+    -Soft Reference
+--Each Thread has its own Stack Memory
+--Variables with a SCOPE is only visible
+  as any variable goes out of scope , it get deleted  
+  from the stack(in LIFO order)
+--when stack memory goes full, it throws "java.lang.StackOverflowError"
+
+
+Different types of references:
+-----
+1.Strong Reference:
+----
+how generallt all objects are allocated
+Person obj = new Person();
+
+2.Weak Reference:
+----
+WeakReference<Person> weak_person = new Weakreference<>();
+here
+
+as soon as Garbage Collector is invoked all this will be deleted
+
+3.Soft Reference:
+----
+In this, it was specifying that 
+only delete when it is vevy very urgent to have space
+
+
+Heap Memory:
+-----------
+--Store Objects
+--There is no order of allocating the memory
+--Garbage Collector is used to delete the
+  unreferenced objects from the heap
+  --Mark and sweep Algo
+  --Types of GC:
+    -single GC
+    -
+
+Heap Memory Structure:
+<----Young Generation---><---Old Generation---> 
+---
+The Young Generation is divided into 
+<---Eden---><---Survivor I---><Survior II--->
+
+whenever new object is created
+then it was allocated in 
+--Eden
+
+
+
+
+
