@@ -186,8 +186,77 @@ this is one of the
 terminal operation
 
 
+when we apply 
+
+List<Integer> numbers = Arrays.asList(2, 1, 4, 7, 10); Stream<Integer> numbersStream = numbers.stream()
+.filter((Integer val) -> val >=3)
+.peek((Integer val) -> System.out.println("after filter:" + val)) .map((Integer val) -> (val * -1))
+.peek((Integer val) -> System.out.println("after negating:" + val)) .sorted()
+.peek((Integer val)-> System.out.println("after Sorted:" + val));
+List<Integer> filteredNumberStream = numbersStream.collect(Collectors.toList());
 
 
+here some opeartions are only performed when all teh elemenets are present
+
+operations like filter, peek can be performed on 
+single elements
+
+In here
+---->
+fitler -- peek -- map -- peek -- 
+on sinlge element these are performed
+
+and for sorted 
+all the elements are performed
+
+
+Different Terminal Operations:
+
+1.
+forEach(Consumer<T> action)
+
+2.
+toArray()
+
+3.
+reduce()
+
+4.
+collect()
+
+5.
+min(),
+max()
+
+
+
+Parallel Stream:
+------>
+helps to perform operation on stream concurrently
+taking advantage of mutli core CPU
+
+Internally:
+--->
+Task Splitting
+Task Submission 
+----> uses Fork-Join Technique
+
+
+main diff in implementation is 
+.stream()
+.parallelstream()
+
+
+Both produces the same output
+The
+only difference is 
+
+Difference in time
+
+For example using 
+stream() the time taken is 64 millisecond
+for 
+parallelStream() the time taken is 5 millisecond
 
 
 
