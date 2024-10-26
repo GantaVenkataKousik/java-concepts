@@ -58,10 +58,120 @@ The Young Generation is divided into
 <---Eden---><---Survivor I---><Survior II--->
 
 whenever new object is created
-then it was allocated in 
+then it was created in 
 --Eden
 
+after sometime garbage collector in invoked
+---Mark & Sweep Algorithm
+   -- mark intially mark
+      all the unreferenced objects 
+   -- sweep removes the marked objects from memory
+      and moves the sustaining objects to 
+      survivor ) 
+   -- now their age is I
+      this age is called minor GC
+
+now new objects are created
+they are created in Eden
+pur suppose we have 
+
+Eden --> Obj 6,7
+Suvivor I --> Obj 1,2,3
+
+now again mark and sweep was executed
+then 
+  suppose unreferenced objs are 7 & 3 
+  and these are deleted 
+  now every obj are 
+moved to 
+  survivor I
+  with age as 
+  Age 2 --> 1,2
+  Age 1 --> 6
+
+In next scenario 
+when again new obj is created and 
+again mark and sweep is called 
+
+now the objs are moved from survivor I to 
+survivor 0
+
+there is somethign we have is threshold 
+per suppose for the objects here 
+we 
+have a threshold 3 
+then these are now moved to 
+
+Old generation
+
+Until now this is called minor GC
+now they are major GC (old Generation)
+
+The main diff between both 
+the 
+GC in major GC runs very less 
+periodically
+
+now the objs are called big objs 
+and they are used very frequently and 
+takes time to retrieve them
+
+as they are alive from so long 
+they'll be having lot of references
 
 
 
+Now in total Heap
+
+<----Heap----><----Non-Heap---->
+In  Non-heap we
+have meta-space
+(Permanent Generation)
+we have pungen before Java 7
+now in java 8 we have meta-space
+
+in Meta-space we have class variables
+we'll be having class metadata
+
+
+Garbage Collector:
+--Mark & Sweep Algo 
+--Mark & Sweep with Compact memory
+
+Main diff is
+
+there are objs which are identified to be deleted
+after deletion as this was random allocation in tge 
+memory 
+there are certain free spaces
+with compaction it brings the 
+memory to sequential
+we have
+memory in sequential allowing more 
+free flexible space
+
+
+Versions of GC:
+--serial GC
+  --Only one thread is used
+  --work is slow
+  --GC is expensive
+    --all application threads are stopped
+    --once GC threads are working
+      all application threads stops working
+
+--Parallel GC (default GC)
+  --based on number of CPU cores
+  --that many threads will be executing
+    --so work will be faster
+
+--Concurrent Mark & Sweep GC
+  --conccurently GC and application threads are working
+  --but not 100% garaunteed
+  --no memory compaction
+
+--G1 GC
+  --bringa compactoin for concurrent Mark & Sweep GC
+  --throught increaes (more requests can be handled)
+  --latency decreases(because of less pauses)
 
