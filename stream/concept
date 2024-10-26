@@ -1,0 +1,193 @@
+Stream:
+
+--> it was like a pipeline
+through which our data passes through
+
+--> when data passes throught the pipeline
+there are various operations being happened like
+sorting, filtering etc
+
+--> useful when doing bulk processing
+
+Collection ---> (step1) Create Stream ---> (step2) Intermediate
+Operations ---> (step3)Terminal Operations 
+
+at Step1:
+streams are created from the data source 
+like collection of array etc
+
+at step2:
+--Intermediate Operations like
+filter(), sorted(), 
+Transformation
+  
+from the step2 the output is also a Stream
+these are 
+lazy operations 
+executed only when terminal operations are invoked
+
+
+at step3:
+--> Terminal Operations like
+collect(),
+reduce(),
+count()etc... are used.
+
+--these op triggers the processing of the stream
+--and produce the output
+--after this there are no other operations
+
+
+For Ex:
+when we 
+have unsorted data
+first it passes through step1 
+collection is created 
+
+now at step2 
+the data will be sorted but still it was a stream
+
+Java Example:
+public class StreamSample{
+  public static void main(String[] args){
+    List<Integer> salaryList = new ArrayList<>();
+    salaryList.add(20000);
+    salaryList.add(30000);
+    salaryList.add(50000);
+    salaryList.add(25000);
+
+    int count=0;
+    for(int salary:salaryList){
+      if(salary>=300)count++;
+    }
+  }
+}
+
+now using streams:
+public class StreamSample{
+  public static void main(String[] args){
+    List<Integer> salaryList = new ArrayList<>();
+    salaryList.add(20000);
+    salaryList.add(30000);
+    salaryList.add(50000);
+    salaryList.add(25000);
+
+    long output = salaryList.Stream().filter((Integer sal)-> 
+    sal>=3000).count();
+    System.out.println("Total Employees : "+output);
+  }
+}
+
+Diff ways to create Stream:
+
+From collection:
+----->
+salaryList.Stream();
+
+From Array:
+----->
+Stream<Integer> streamFromIntegerArray = Arrays.stream(array);
+
+From Static Method:
+----->
+Stream<Integer> streamFromStaticMethod = Stream.of(1000,2000,3000,4000);
+
+From Stream Builder:
+----->
+Stream.Builder<Integer> streamBuilder = Stream.builder();
+streamBuilder.add(1000).add(2000).add(3000);
+Stream<Integer> streamFromStreamBuilder = StreamBuilder.build();
+
+
+Different Intermediate Methods:
+------
+
+1.
+filter<Predicate<T> predicate)
+----->
+Filters the element:
+predicate is an interface
+----->
+Stream<Integer> salaryList = Stream.of(1000,2000,3000,4000);
+long output = salaryList.Stream().filter((Integer sal)-> 
+    sal>=3000).count();
+
+
+Stream<String> nameStream = Stream.of("HELLO", "EVERYBODY", "HOW", "ARE", "YOU", "DOING"); 
+Stream<String> filteredStream = nameStream.filter((String name) ->name.length() <= 3);
+List<String> filteredNameList = filteredStream.collect (Collectors.toList());
+
+2.
+map(Function<T,R> mapper)
+----->
+Used to transform each element
+----->
+Stream<Integer> salaryList = Stream.of(1000,2000,3000,4000);
+Stream<String> filteredNames = salaryList.map((Integer sal)->sal-1000);
+
+Function is an interface
+
+3.flatMap(Function<T,Stream<R>> mapper)
+--->
+used to iterate over each element of the complex
+collection and helps to flatten it
+--->
+
+
+4.distinct()
+---->
+removes duplicates from the stream
+---->
+Stream<Integer> arrStr=Arrays.stream(arr).distinct();
+
+
+5.sorted();
+
+
+6.peek(Consumer<T> action);
+--->
+useful to see the intermediate result
+which is getting processed
+
+
+7.
+limit(long maxSize)
+---->
+truncate the stream, to have no longer 
+than given maxSize
+---->
+
+8.
+skip(long n)
+---->
+skips the first n elements of the stream
+---->
+
+  
+Why we call Intermediate Operation "Lazy":
+---->
+
+public static void main(String args[]){
+
+List<Integer> numbers = Arrays.asList(2, 1, 4, 7, 10);
+Stream<Integer> numbersStream = numbers.stream().filter((Integer val) -> val >=3). peek((Integer val) -> System.out.println(val));
+
+}
+here 
+----->
+nothing was printed on the output
+
+becuase
+---->
+numbersStream.count(); //count is one of the terminal operation
+
+when we add this we'll output 
+this is one of the 
+terminal operation
+
+
+
+
+
+
+
